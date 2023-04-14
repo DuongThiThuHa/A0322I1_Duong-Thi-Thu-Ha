@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ứng dụng tính tiền tips đơn giản</title>
+    <style>
+        table {
+            background: brown;
+            width: 300px;
+            height: 700px
+        }
+
+        tr, td {
+            background: white;
+        }
+
+        h3 {
+            width: 300px;
+            text-align: center;
+            background: black;
+            color: white;
+            border-top-left-radius: 110px;
+            border-top-right-radius: 110px;
+        }
+
+        h4 {
+            margin-left: 80px;
+        }
+
+        h5 {
+            margin-left: 80px;
+            border-bottom-left-radius: 110px;
+            border-bottom-right-radius: 110px
+        }
+
+        button {
+            background: #df3838;
+            color: white;
+            margin-left: 80px
+        }
+    </style>
+</head>
+
+<body>
+
+<table>
+    <h3>TIP CALCULATOR</h3>
+
+    <p>How much was your bill ?</p>
+    <span>$</span><input name="money" id="bill">
+
+    <p>How was your service ?</p>
+    <select>
+        <option id="giatri30" value="30">Outstanding - 30%</option>
+        <option id="giatri20" value="20"> Good - 20%</option>
+        <option id="giatri15" value="15"> It was OK - 15%</option>
+        <option id="giatri10" value="10"> BAD - 10%</option>
+        <option id="giatri5" value="5"> Terrible - 5%</option>
+    </select>
+
+    <p>How many people are sharing the bill ?</p>
+    <input id="number">
+    <span>people</span><br>
+
+    <button>CALCULATE !</button>
+
+    <h4>TIP AMOUNT</h4>
+
+    <h5>
+        <sup><big>$</big></sup>
+        <span id="total"></span>
+    </h5>
+
+    <h5>each</h5>
+</table>
+
+<script>
+    $(document).ready(function(){
+        $('#bill').click(function(){
+            document.forms.display.value += 1;
+        });
+        $('#giatri30').click(function(){
+            document.forms.display.value += 2;
+        });
+        $('#giatri20').click(function(){
+            document.forms.display.value += 3;
+        });
+        $('#giatri15').click(function(){
+            document.forms.display.value += 4;
+        });
+        $('#giatri10').click(function(){
+            document.forms.display.value += 5;
+        });
+        $('#giatri5').click(function(){
+            document.forms.display.value += 6;
+        });
+        $('#number').click(function(){
+            document.forms.display.value += 7;
+        });
+        $('#total').click(function(){
+            document.forms.display.value += 8;
+        });
+
+        $('#equal').click(function(){
+            if (display.value == "") {
+                alert("Please enter any numbers to calculate!");
+            }else{
+                document.forms.display.value =
+                    eval(document.forms.display.value);
+            }
+        });
+        $('#clear').click(function(){
+            document.forms.display.value = "";
+        });
+    })
+</script>
+</body>
+</html>
