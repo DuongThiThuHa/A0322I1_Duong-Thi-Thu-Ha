@@ -17,19 +17,19 @@
     alert("So nho nhat la : "+min);
     alert("So lon nhat la : "+max);
 
+    let numbers = [a,b,c,d];
+    numbers.sort();
+    alert(numbers);
 
-    let number = array.sort();
+    let myarray = [a,b,c,d];
+    myarray.sort(function(a, b) {
+        return b - a;
+    });
+    alert(myarray);
 
-    function compareNumbers(array, number) {
-        return array - number;
-    }
 
-    let array = [a,b,c,d];
-    alert(a.sort(compareNumbers));
 
-    // let array=[a,b,c,d];
-    // array.sort((array-number) => array - number);
-    // alert(array);
+
 </script>
 </body>
 </html>

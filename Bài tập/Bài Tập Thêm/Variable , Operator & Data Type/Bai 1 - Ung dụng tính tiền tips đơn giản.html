@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <title>ứng dụng tính tiền tips đơn giản</title>
     <style>
-        table {
+        #div_around {
             background: brown;
             width: 300px;
-            height: 700px
+            height: 650px;
         }
 
-        tr, td {
+        #div_inner {
             background: white;
+            margin-left: 5px;
+            width: 290px;
+            height: 600px;
+            margin-bottom: 50px;
+
         }
 
         h3 {
-            width: 300px;
+            width: 290px;
             text-align: center;
             background: black;
             color: white;
+            margin-top: 50px;
             border-top-left-radius: 110px;
             border-top-right-radius: 110px;
         }
@@ -30,7 +36,18 @@
         h5 {
             margin-left: 80px;
             border-bottom-left-radius: 110px;
-            border-bottom-right-radius: 110px
+            border-bottom-right-radius: 110px;
+        }
+
+        h6 {
+            margin-left: 50px;
+            font-size: 15px;
+        }
+
+        table {
+            margin-left: 100px;
+            font-size: 15px;
+            text-align: center;
         }
 
         button {
@@ -42,77 +59,49 @@
 </head>
 
 <body>
+<div id="div_around">
+    <div id="div_inner">
+        <h3>TIP CALCULATOR</h3>
 
-<table>
-    <h3>TIP CALCULATOR</h3>
+        <p>How much was your bill ?</p>
+        <span>$</span><input name="bill" id="money">
 
-    <p>How much was your bill ?</p>
-    <span>$</span><input name="money" id="bill">
+        <p>How was your service ?</p>
+        <select name="service" id="giatri">
+            <option value="30">Outstanding - 30%</option>
+            <option value="20"> Good - 20%</option>
+            <option value="15"> It was OK - 15%</option>
+            <option value="10"> BAD - 10%</option>
+            <option value="5"> Terrible - 5%</option>
+        </select>
 
-    <p>How was your service ?</p>
-    <select>
-        <option id="giatri30" value="30">Outstanding - 30%</option>
-        <option id="giatri20" value="20"> Good - 20%</option>
-        <option id="giatri15" value="15"> It was OK - 15%</option>
-        <option id="giatri10" value="10"> BAD - 10%</option>
-        <option id="giatri5" value="5"> Terrible - 5%</option>
-    </select>
+        <p>How many people are sharing the bill ?</p>
+        <input id="number">
+        <span>people</span><br><br><br>
 
-    <p>How many people are sharing the bill ?</p>
-    <input id="number">
-    <span>people</span><br>
+        <button onclick="calculate()" id="total">CALCULATE !</button>
 
-    <button>CALCULATE !</button>
+        <h4>TIP AMOUNT</h4>
 
-    <h4>TIP AMOUNT</h4>
+        <table>
+            <tr>
+                <td><sup><big>$</big></sup></td>
+                <td id="result"></td>
+            </tr>
+            <tr>
+                <td>each</td>
+            </tr>
+        </table>
 
-    <h5>
-        <sup><big>$</big></sup>
-        <span id="total"></span>
-    </h5>
-
-    <h5>each</h5>
-</table>
+    </div>
+</div>
 
 <script>
-    $(document).ready(function(){
-        $('#bill').click(function(){
-            document.forms.display.value += 1;
-        });
-        $('#giatri30').click(function(){
-            document.forms.display.value += 2;
-        });
-        $('#giatri20').click(function(){
-            document.forms.display.value += 3;
-        });
-        $('#giatri15').click(function(){
-            document.forms.display.value += 4;
-        });
-        $('#giatri10').click(function(){
-            document.forms.display.value += 5;
-        });
-        $('#giatri5').click(function(){
-            document.forms.display.value += 6;
-        });
-        $('#number').click(function(){
-            document.forms.display.value += 7;
-        });
-        $('#total').click(function(){
-            document.forms.display.value += 8;
-        });
-
-        $('#equal').click(function(){
-            if (display.value == "") {
-                alert("Please enter any numbers to calculate!");
-            }else{
-                document.forms.display.value =
-                    eval(document.forms.display.value);
-            }
-        });
-        $('#clear').click(function(){
-            document.forms.display.value = "";
-        });
-    })
+    function calculate() {
+        let sum = document.getElementById("money").value * document.getElementById("giatri").value * document.getElementById("number").value;
+        let total = document.getElementById("total").value;
+        document.getElementById("result").innerText = sum;
+    }
 </script>
 </body>
 </html>
