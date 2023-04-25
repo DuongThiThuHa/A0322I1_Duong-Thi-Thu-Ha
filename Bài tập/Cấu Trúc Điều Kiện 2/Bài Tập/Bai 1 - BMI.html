@@ -8,7 +8,7 @@
 <script>
     let weight = prompt("Nhap vao so can nang cua ban : ");
     let height = prompt("Nhap vao so chieu cao cua ban : ");
-    let bmi = weight / ( height ^ 2 );
+    let bmi = weight / ( Math.pow(height,2));
 
     if (bmi < 18.5)
         document.write("Underweight");
