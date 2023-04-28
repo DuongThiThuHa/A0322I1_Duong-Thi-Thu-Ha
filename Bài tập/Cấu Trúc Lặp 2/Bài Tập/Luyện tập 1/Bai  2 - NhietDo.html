@@ -6,10 +6,17 @@
 </head>
 <body>
 <script>
-    let temp = prompt("Nnhap vao nhiet do : ");
-   while (temp < 20 || temp > 100){
-       alert("Yeu cau nhap lai ");
-   }
+    let temp
+    do {
+        temp = Number(prompt('Nhập nhiệt độ hiện tại'));
+        if(temp>100)
+            alert("Giam nhiet do");
+        else
+        if(temp<20)
+            alert("Tang nhiet do");
+    }
+    while (temp>100 || temp<20)
+    alert("Nhiet do on dinh ")
 </script>
 </body>
 </html>

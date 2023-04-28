@@ -6,20 +6,11 @@
 </head>
 <body>
 <script>
-    let sum = 0;
-    let i = 1;
-    let count;
-
-    while (count < 30) {
-        if (i % 7 === 0) {
-            sum += i;
-            count++;
-        }
-        i++;
+    let sum=0;
+    for(let i=1;i<=30;i++){
+        sum+=7*i;
     }
-
-    alert("Tổng của 30 số chia hết cho 7 đầu tiên là: " + sum);
-
+    alert(sum);
 </script>
 </body>
 </html>
